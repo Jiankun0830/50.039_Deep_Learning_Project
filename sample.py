@@ -15,7 +15,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def load_image(image_path, transform=None):
     image = Image.open(image_path).convert('RGB')
-    image = image.resize([224, 224], Image.LANCZOS)
+    image = image.resize([256,256], Image.LANCZOS)
     
     if transform is not None:
         image = transform(image).unsqueeze(0)
@@ -32,7 +32,7 @@ def main(args):
     # Load vocabulary wrapper
     with open(args.vocab_path, 'rb') as f:
         vocab = pickle.load(f)
-
+    # print(len(vocab))
     # Build models
     encoder = EncoderCNN(args.embed_size).eval()  # eval mode (batchnorm uses moving mean/variance)
     decoder = DecoderRNN(args.embed_size, args.hidden_size, vocab, args.num_layers)
@@ -63,8 +63,9 @@ def main(args):
     
     # Print out the image and the generated caption
     print (sentence)
-    image = Image.open(args.image)
-    plt.imshow(np.asarray(image))
+    return sentence
+    # image = Image.open(args.image)
+    # plt.imshow(np.asarray(image))
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
