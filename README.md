@@ -16,9 +16,9 @@ In the test phase, the encoder part is almost same as the training phase. The on
 #### 1. Preprocessing
 
 ```bash
-put `glove.6B.300d.txt` (downloaded from [here](https://nlp.stanford.edu/projects/glove/)) in the same directory as `train.py` 
-python build_vocab.py --caption_path `path to COCO caption file`
-python resize.py --image_dir `path to COCO training set images`
+put glove.6B.300d.txt (downloaded from https://nlp.stanford.edu/projects/glove/) in the same directory as train.py
+python build_vocab.py --caption_path path_to_COCO_caption_file
+python resize.py --image_dir path_to_COCO_training_set_images
 ```
 
 #### 2. Train the model
