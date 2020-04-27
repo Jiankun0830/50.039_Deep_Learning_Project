@@ -1,4 +1,4 @@
-# Image Captioning
+# 50.039 Theory and Practice of Deep Learning Project
 
 #### Group Members
 Lu Jiankun (10029590), Peng Shanshan (1002974),
